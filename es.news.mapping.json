@@ -1,0 +1,78 @@
+{
+  "index_patterns": [
+    "modoojeonse-*"
+  ],
+  "template": {
+    "settings": {
+      "index": {
+        "analysis": {
+          "filter": {
+            "search_shingle": {
+              "max_shingle_size": "3",
+              "token_separator": "",
+              "type": "shingle"
+            }
+          },
+          "analyzer": {
+            "search_nori_analyzer": {
+              "filter": [
+                "search_shingle",
+                "lowercase"
+              ],
+              "tokenizer": "search_nori_tokenizer"
+            }
+          },
+          "tokenizer": {
+            "search_nori_tokenizer": {
+              "type": "nori_tokenizer",
+              "decompound_mode": "discard"
+            }
+          }
+        },
+        "number_of_shards": "5"
+      }
+    },
+    "mappings": {
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "title": {
+          "type": "text"
+        },
+        "summary_text": {
+          "search_analyzer": "standard",
+          "analyzer": "search_nori_analyzer",
+          "type": "text"
+        },
+        "body_text": {
+          "search_analyzer": "standard",
+          "analyzer": "search_nori_analyzer",
+          "type": "text"
+        },
+        "html": {
+          "type": "text"
+        },
+        "publisher": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "author": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "url": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}
