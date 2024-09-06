@@ -33,7 +33,7 @@ def retrieve_article():
         for item in news:
             url = item.find("a", href=True)["href"]
             news = scrap_realestate_news(url)
-            es.index(index=index, body=news)
+            es.index(index=index, body=news, id=url.split('/')[-1])
 
 
 def scrap_realestate_news(url):
