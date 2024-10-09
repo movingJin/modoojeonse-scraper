@@ -29,7 +29,9 @@
             }
           }
         },
-        "number_of_shards": "5"
+        "number_of_shards": "5",
+        "sort.field": "@timestamp",
+        "sort.order": "desc"
       }
     },
     "mappings": {
@@ -38,15 +40,17 @@
           "type": "date"
         },
         "title": {
+          "search_analyzer": "search_nori_analyzer",
+          "analyzer": "search_nori_analyzer",
           "type": "text"
         },
         "summary_text": {
-          "search_analyzer": "standard",
+          "search_analyzer": "search_nori_analyzer",
           "analyzer": "search_nori_analyzer",
           "type": "text"
         },
         "body_text": {
-          "search_analyzer": "standard",
+          "search_analyzer": "search_nori_analyzer",
           "analyzer": "search_nori_analyzer",
           "type": "text"
         },
