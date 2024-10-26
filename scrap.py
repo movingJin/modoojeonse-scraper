@@ -15,8 +15,8 @@ es = Elasticsearch(
     verify_certs=False,
     request_timeout=30
 )
-template_name = "modoojeonse"
-index = "modoojeonse-news"
+template_name = "modoojeonse-news"
+index = f"modoojeonse-news-{datetime.today().year}"
 
 
 def create_index_template():

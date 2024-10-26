@@ -1,6 +1,6 @@
 {
   "index_patterns": [
-    "modoojeonse-*"
+    "modoojeonse-news-*"
   ],
   "template": {
     "settings": {
@@ -33,6 +33,9 @@
         "sort.field": "@timestamp",
         "sort.order": "desc"
       }
+    },
+    "aliases" : {
+        "modoojeonse-news" : {}
     },
     "mappings": {
       "properties": {
