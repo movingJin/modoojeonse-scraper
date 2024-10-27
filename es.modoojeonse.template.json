@@ -1,7 +1,4 @@
 {
-  "index_patterns": [
-    "modoojeonse-news-*"
-  ],
   "template": {
     "settings": {
       "index": {
@@ -34,9 +31,6 @@
         "sort.order": "desc"
       }
     },
-    "aliases" : {
-        "modoojeonse-news" : {}
-    },
     "mappings": {
       "properties": {
         "@timestamp": {
@@ -57,17 +51,6 @@
           "analyzer": "search_nori_analyzer",
           "type": "text"
         },
-        "html": {
-          "type": "text"
-        },
-        "publisher": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword"
-            }
-          }
-        },
         "author": {
           "type": "text",
           "fields": {
@@ -75,9 +58,6 @@
               "type": "keyword"
             }
           }
-        },
-        "url": {
-          "type": "text"
         }
       }
     }

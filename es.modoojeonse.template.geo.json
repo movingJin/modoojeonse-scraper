@@ -1,0 +1,23 @@
+{
+  "index_patterns": [
+    "modoojeonse-geo-*"
+  ],
+  "composed_of": ["modoojeonse"],
+  "template": {
+    "aliases" : {
+      "modoojeonse-geo" : {}
+    },
+    "mappings": {
+      "properties": {
+        "location": {
+          "type": "geo_point"
+        },
+        "address": {
+          "search_analyzer": "search_nori_analyzer",
+          "analyzer": "search_nori_analyzer",
+          "type": "text"
+        }
+      }
+    }
+  }
+}

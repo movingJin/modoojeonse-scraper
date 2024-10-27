@@ -1,0 +1,29 @@
+{
+  "index_patterns": [
+    "modoojeonse-news-*"
+  ],
+  "composed_of": ["modoojeonse"],
+  "template": {
+    "aliases" : {
+      "modoojeonse-news" : {}
+    },
+    "mappings": {
+      "properties": {
+        "html": {
+          "type": "text"
+        },
+        "publisher": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        },
+        "url": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}

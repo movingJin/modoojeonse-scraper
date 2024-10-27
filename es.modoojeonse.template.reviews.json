@@ -1,0 +1,41 @@
+{
+  "index_patterns": [
+    "modoojeonse-reviews-*"
+  ],
+  "composed_of": ["modoojeonse"],
+  "template": {
+    "aliases" : {
+      "modoojeonse-reviews" : {}
+    },
+    "mappings": {
+      "properties": {
+        "address": {
+          "search_analyzer": "search_nori_analyzer",
+          "analyzer": "search_nori_analyzer",
+          "type": "text"
+        },
+        "is_return_delayed": {
+          "type": "boolean"
+        },
+        "deposit": {
+          "type": "unsigned_long"
+        },
+        "contract_date": {
+          "type": "date"
+        },
+        "from_date": {
+          "type": "date"
+        },
+        "to_date": {
+          "type": "date"
+        },
+        "rating": {
+          "type": "integer"
+        },
+        "imgs": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}

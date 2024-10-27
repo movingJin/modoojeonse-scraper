@@ -15,15 +15,26 @@ es = Elasticsearch(
     verify_certs=False,
     request_timeout=30
 )
-template_name = "modoojeonse-news"
+
 index = f"modoojeonse-news-{datetime.today().year}"
 
 
 def create_index_template():
-    with open('es.news.mapping.json', 'r') as f:
+    with open('es.modoojeonse.template.json', 'r') as f:
+        component = json.load(f)
+        es.cluster.put_component_template(name="modoojeonse", body=component)
+    with open('es.modoojeonse.template.news.json', 'r') as f:
         template = json.load(f)
-        es.options(ignore_status=[400, 404]).indices.delete(index=index)
-        es.indices.put_index_template(name=template_name, body=template)
+        es.options(ignore_status=[400, 404]).indices.delete(index=template["index_patterns"][0])
+        es.indices.put_index_template(name="modoojeonse-news", body=template)
+    with open('es.modoojeonse.template.geo.json', 'r') as f:
+        template = json.load(f)
+        es.options(ignore_status=[400, 404]).indices.delete(index=template["index_patterns"][0])
+        es.indices.put_index_template(name="modoojeonse-geo", body=template)
+    with open('es.modoojeonse.template.reviews.json', 'r') as f:
+        template = json.load(f)
+        es.options(ignore_status=[400, 404]).indices.delete(index=template["index_patterns"][0])
+        es.indices.put_index_template(name="modoojeonse-reviews", body=template)
 
 
 def retrieve_article():
