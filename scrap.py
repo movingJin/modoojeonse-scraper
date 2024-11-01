@@ -20,6 +20,9 @@ index = f"modoojeonse-news-{datetime.today().year}"
 
 
 def create_index_template():
+    with open('es.modoojeonse.pipeline.json', 'r') as f:
+        pipeline = json.load(f)
+        es.ingest.put_pipeline(id="auto_now_add", body=pipeline)
     with open('es.modoojeonse.template.json', 'r') as f:
         component = json.load(f)
         es.cluster.put_component_template(name="modoojeonse", body=component)

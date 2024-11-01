@@ -1,0 +1,10 @@
+{
+  "description": "Assigns the current date if not yet present",
+  "processors": [
+    {
+      "script": {
+        "source": "if (ctx['@timestamp'] == null) {ctx['@timestamp'] = new SimpleDateFormat(\"yyyy-MM-dd'T'HH:mm:ss.SSSZ\").format(new Date());}"
+      }
+    }
+  ]
+}
