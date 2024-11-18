@@ -15,15 +15,15 @@
         "address": {
           "search_analyzer": "search_nori_analyzer",
           "analyzer": "search_nori_analyzer",
-          "type": "text"
-        },
-        "type": {
           "type": "text",
           "fields": {
             "keyword": {
               "type": "keyword"
             }
           }
+        },
+        "type": {
+          "type": "keyword"
         }
       }
     }
