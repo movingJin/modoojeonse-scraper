@@ -15,7 +15,12 @@
         "address_detail": {
           "search_analyzer": "search_nori_analyzer",
           "analyzer": "search_nori_analyzer",
-          "type": "text"
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
         },
         "contract_type": {
           "type": "keyword"
