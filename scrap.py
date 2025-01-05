@@ -11,7 +11,7 @@ from urllib3 import disable_warnings
 disable_warnings(InsecureRequestWarning)
 es = Elasticsearch(
     hosts=["http://192.168.0.3:9200"],
-    basic_auth=('modoo-jeonse', 'sh110930sh35!'),
+    basic_auth=('modoouser', 'Passw0rd!@#'),
     verify_certs=False,
     request_timeout=30
 )
