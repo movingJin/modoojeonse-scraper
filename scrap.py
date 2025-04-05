@@ -77,6 +77,6 @@ def scrap_realestate_news(url):
 
 
 if __name__ == '__main__':
-    create_index_template()
-    time.sleep(5)
+    # create_index_template()
+    # time.sleep(5)
     retrieve_article()
