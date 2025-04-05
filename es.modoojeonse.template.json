@@ -9,12 +9,16 @@
               "max_shingle_size": "3",
               "token_separator": "",
               "type": "shingle"
+            },
+            "length_filter": {
+              "type": "length",
+              "min": 2
             }
           },
           "analyzer": {
             "search_nori_analyzer": {
               "filter": [
-                "search_shingle",
+                "length_filter",
                 "lowercase"
               ],
               "tokenizer": "search_nori_tokenizer"

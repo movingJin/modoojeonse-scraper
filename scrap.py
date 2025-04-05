@@ -38,7 +38,7 @@ def create_index_template():
         template = json.load(f)
         es.options(ignore_status=[400, 404]).indices.delete(index=template["index_patterns"][0])
         es.indices.put_index_template(name="modoojeonse-reviews", body=template)
-
+    es.indices.delete(index=index, ignore=[400, 404])
 
 def retrieve_article():
     for page in range(1, 11):
@@ -77,5 +77,6 @@ def scrap_realestate_news(url):
 
 
 if __name__ == '__main__':
-    # create_index_template()
+    create_index_template()
+    time.sleep(5)
     retrieve_article()
